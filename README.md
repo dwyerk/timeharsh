@@ -1,0 +1,2 @@
+# timeharsh
+Timehash in Rust
