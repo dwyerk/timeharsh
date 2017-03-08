@@ -1,4 +1,5 @@
 use std::collections::HashMap;
+use std::iter;
 
 static BASE32: &'static str = "01abcdef";
 
@@ -114,4 +115,48 @@ pub fn decode_exactly(timehash: &str) -> (f64, f64) {
         }
     }
     return ((interval.begin + interval.end) / 2.0, time_error);
+}
+
+// Return the timehash for the preceding time-window.
+pub fn before(timehash: &str) -> String {
+    let neighbor_map = get_neighbor_map();
+    let mut i = 1;
+    for c in timehash.chars().rev() {
+        let padding: String = iter::repeat("f").take(i - 1).collect();
+        let pos = timehash.len() - i;
+        if c != '0' {
+            return timehash[0..pos].to_string() + &neighbor_map.get(&c).unwrap().0.to_string() + &padding;
+        } else {
+            i += 1;
+        }
+    }
+    return "".to_string();
+}
+
+// Return the timehash for the succeeding time-window.
+pub fn after(timehash: &str) -> String {
+    let neighbor_map = get_neighbor_map();
+    let mut i = 1;
+    for c in timehash.chars().rev() {
+        let padding: String = iter::repeat("0").take(i - 1).collect();
+        let pos = timehash.len() - i;
+        if c != 'f' {
+            return timehash[0..pos].to_string() + &neighbor_map.get(&c).unwrap().1.to_string() + &padding;
+        } else {
+            i += 1;
+        }
+    }
+    return "".to_string();
+}
+
+// Return the timehashes for the preceding and succeeding time-windows,
+// excluding the timehash for the current time-window.
+pub fn neighbors(timehash: &str) -> (String, String) {
+    return (before(timehash), after(timehash));
+}
+
+// Return the timehashes for the preceding and succeeding time-windows,
+// including the timehash for the current time-window.
+pub fn expand(timehash: &str) -> (String, String, String) {
+    return (before(timehash), timehash.to_string(), after(timehash));
 }
