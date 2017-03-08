@@ -2,5 +2,11 @@
 name = "timeharsh"
 version = "0.1.0"
 authors = ["Kevin Dwyer <kevin@pheared.net>"]
+description = "timeharsh implements the timehash algorithm, an algorithm for creating user configurable, variable-precision sliding windows of time. Useful for binning time values in large collections of data."
+documentation = "https://github.com/dwyerk/timeharsh/README.md"
+homepage = "https://github.com/dwyerk/timeharsh"
+repository = "https://github.com/dwyerk/timeharsh"
+license = "MIT"
+license-file = "LICENSE"
 
 [dependencies]
