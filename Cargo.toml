@@ -6,7 +6,6 @@ description = "timeharsh implements the timehash algorithm, an algorithm for cre
 documentation = "https://github.com/dwyerk/timeharsh/README.md"
 homepage = "https://github.com/dwyerk/timeharsh"
 repository = "https://github.com/dwyerk/timeharsh"
-license = "MIT"
 license-file = "LICENSE"
 
 [dependencies]
