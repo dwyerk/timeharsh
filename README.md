@@ -12,6 +12,17 @@ algorithm was written in Python by Abe Usher and is available at https://github.
 
 An example use case of timehash is described in the following paper: https://isprs-annals.copernicus.org/articles/IV-4-W2/31/2017/isprs-annals-IV-4-W2-31-2017.pdf
 
+## Usage
+```rust
+extern crate timeharsh;
+
+let hash1 = timehash::encode(1236532473.6328125, 6).unwrap();
+// hash1 == "abcdef"
+
+let t1 = timeharsh::timehash::decode("abcdef").unwrap();
+// t1 == 1236532473.6328125
+```
+
 ## Building the project
 `cargo build`
 
