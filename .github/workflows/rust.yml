@@ -35,7 +35,7 @@ jobs:
       run: cargo doc --no-deps --document-private-items
     # --no-deps won't have a base index file, so create one
     - name: Add redirect
-      run: echo '<meta http-equiv="refresh" content="0;url=cube_sniper/index.html">' > target/doc/index.html
+      run: echo '<meta http-equiv="refresh" content="0;url=timeharsh/index.html">' > target/doc/index.html
     - name: Upload docs artifact
       uses: actions/upload-pages-artifact@v3
       with:
