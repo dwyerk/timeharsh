@@ -1,6 +1,6 @@
 [package]
 name = "timeharsh"
-version = "1.0.0"
+version = "1.0.1"
 authors = ["Kevin Dwyer <kevin@pheared.net>"]
 description = "timeharsh implements the timehash algorithm, an algorithm for creating user configurable, variable-precision sliding windows of time. Useful for binning time values in large collections of data."
 documentation = "https://dwyerk.github.io/timeharsh/timeharsh/index.html"
